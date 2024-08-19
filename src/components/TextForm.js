@@ -60,8 +60,8 @@ export default function TextForm(props) {
             <textarea style={{backgroundColor: props.mode === 'dark'?'grey':'white'}} type="text" className="form-control" value={text} onChange={handleOnChange} id="mybox" rows="8" placeholder="This is example text"/>
             </div>
             <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleUppercaseClick}>Convert to uppercase</button>
-            <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleClearText}>Clear textbox</button>
             <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleLowercaseClick}>Convert to lowercase</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleClearText}>Clear textbox</button>
             <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleCopy}>Copy text</button>
             <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleExtraSpaces}>Remove extra space</button>
         </div>
