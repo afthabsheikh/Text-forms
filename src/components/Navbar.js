@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 export default function Navbar(props) {
     return(
       <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
-        <div className="container-fluid">
-          <a className="navbar-brand mx-2" href="/">{props.title}</a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div className="container-fluid px-0">
+          <Link className="navbar-brand mx-2" to="/">{props.title}</Link>
+          <button className="navbar-toggler me-5 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -20,13 +20,10 @@ export default function Navbar(props) {
               </li>
             </ul>
           </div>
-          <form className="d-flex me-auto" role="search">
-          <div class={`form-check form-switch my-auto mx-2 text-${props.mode==='light'?'dark':'light'}`}>
-            <input className="form-check-input" type="checkbox" onClick={props.toggleMode} role="switch" id="flexSwitchCheckChecked" />
+          <div className={`form-check form-switch px-2 ms-5 text-${props.mode==='dark'?'light':'dark'}`}>
+            <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Enable mode</label>
+            <input className="form-check-input" type="checkbox" onClick={props.toggleMode} role="switch" id="flexSwitchCheckChecked" checked={props.mode === 'dark'}/>
           </div>
-            <input className="form-control me-2 mx-1" type="search" placeholder="Search" aria-label="Search"/>
-            <button className="btn btn-outline-primary" type="submit">Search</button>
-          </form>
         </div>
       </nav>
   );

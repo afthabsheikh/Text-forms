@@ -4,12 +4,10 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 import About from './components/About';
-
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+  Routes,
+  Route
 } from 'react-router-dom';
 
 function App() {
@@ -40,18 +38,24 @@ function App() {
   }
   return (
     <>
+    <Router>
       <Navbar title="MyReact" mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert} />
       <div>
-      <Switch>
+      {/* <Routes>
           <Route path="/about">
             <About />
           </Route>
           <Route path="/">
             <TextForm heading="Enter the text" mode={mode} showAlert={showAlert} />
           </Route>
-      </Switch>
+      </Routes> */}
+      <Routes>
+        <Route exact path="/" element={<TextForm heading="TextUtils - uppercase, lowercase, remove spaces" mode={mode} showAlert={showAlert}  />} />
+        <Route exact path="/about" element={<About mode={mode} />} />
+      </Routes>
       </div>
+    </Router>
     </>
   );
 }
